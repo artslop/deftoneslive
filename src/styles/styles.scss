@@ -37,6 +37,9 @@ h1, h2, h3, h4 {
   p {
   	color: $white;
 	}
+  li {
+    color: $white;
+  }
 }
 
 
@@ -85,6 +88,26 @@ h1, h2, h3, h4 {
       text-align: center;
       }
     }
+  }
+
+  #albumDetails {
+
+    .album-art {
+      width:50%;
+      display: inline-block;
+      vertical-align: top;
+      
+      img {
+        max-width: 400px;
+        height: auto;
+        width: 100%;
+      }
+    }
+    .track-list {
+      width:50%;
+      display: inline-block;
+    }
+
   }
 
  /*SHOWS STYLES*/
