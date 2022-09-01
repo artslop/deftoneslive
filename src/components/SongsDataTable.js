@@ -22,11 +22,13 @@ function SongDataTable() {
     const allSongData = useSelector(allSongs)
     const columns = useSelector(columnSongData)
 
+
+    // apparently this is probably unnecessary since we can access the state from the allSongsData selector
     useEffect(() => {
         setSongData(allSongData)
     }, [allSongData])
 
-    console.log('allSongData', allSongData)
+    // console.log('allSongData', allSongData)
 
 
     const pagination = paginationFactory({

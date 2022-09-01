@@ -1,26 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SongDetails from './SongDetails';
+import { allSongs } from "../features/shows/showsSlice"
+import { useSelector } from "react-redux";
 
 function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
     const [isShowingSongDetails, setIsShowingSongDetails] = useState(false);
-    const [song, setSong] = useState("");
+    const [songData, setSongData] = useState([]);
+    const allSongData = useSelector(allSongs)
 
     const handleDisplaySongDetails = (song) => {
+        const filteredSongData = allSongData.filter((track) => {
+            return track.name === song
+        })
+
         setIsShowingSongDetails(true)
-        setSong(song)
-        console.log(song)
+        setSongData(filteredSongData)
     }
-
-
-
-
-
-
 
     return (
         <div>
             {isShowingSongDetails ?
-                <SongDetails song={song} />
+                songData.map(data => (
+                    <SongDetails song={data.name} album={data.album} lyrics={data.lyrics} />
+                ))
                 :
                 <div className="tablecontain">
                     <div className="setlist__container">
