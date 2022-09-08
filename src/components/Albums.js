@@ -60,7 +60,7 @@ function Albums() {
                 </div>
                 <div>
                 <NavLink
-                        to="/BsidesRarities">
+                        to="/BsidesAndRarities">
                         <img src="../albumcovers/BsidesAndRarities.jpg" alt="B-sides & Rarities" />
                     </NavLink>
                 </div>
