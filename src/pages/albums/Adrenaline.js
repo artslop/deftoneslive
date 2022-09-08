@@ -33,6 +33,7 @@ function Adrenaline() {
     return (
         <div className="App" >
             <Header />
+            <Albums />
             {isShowingSongDetails ?
                 songData.map((data) => (
                     <div key={nanoid()} style={{ width: '950px', margin: '0 auto' }}>
