@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid'
 import SongDetails from './SongDetails';
 import { allSongs } from "../features/shows/showsSlice"
 import { useSelector } from "react-redux";
+import Albums from "../components/Albums.js";
 
 function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
     const [isShowingSongDetails, setIsShowingSongDetails] = useState(false);
@@ -20,8 +22,11 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
     return (
         <div>
             {isShowingSongDetails ?
-                songData.map(data => (
-                    <SongDetails song={data.name} album={data.album} lyrics={data.lyrics} />
+                songData.map((data) => (
+                    <div key={nanoid()} style={{ width: '950px', margin: '0 auto' }}>
+                        <Albums />
+                        <SongDetails song={data.name} album={data.album} lyrics={data.lyrics} />
+                    </div>
                 ))
                 :
                 <div className="tablecontain">
