@@ -6,42 +6,75 @@ function Albums() {
             <div className="albumgroup">
                 <div>
                     <NavLink
-                        to="/adrenaline">
+                        to="/Adrenaline">
                         <img src="../albumcovers/Adrenaline.jpg" alt="Adrenaline" />
                     </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/AroundTheFur.jpg" alt="Around The Fur" />
+                    <NavLink
+                        to="/AroundTheFur">
+                        <img src="../albumcovers/AroundTheFur.jpg" alt="Around The Fur" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/WhitePonyGrey.jpg" alt="White Pony" />
+                    <NavLink
+                        to="/WhitePony">
+                        <img src="../albumcovers/WhitePonyGrey.jpg" alt="White Pony" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/Deftones.jpg" alt="Deftones" />
+                    <NavLink
+                        to="/Deftones">
+                        <img src="../albumcovers/Deftones.jpg" alt="Deftones" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/SaturdayNightWrist.jpg" alt="Saturday Night Wrist" />
+                    <NavLink
+                        to="/SaturdayNightWrist">
+                        <img src="../albumcovers/SaturdayNightWrist.jpg" alt="Saturday Night Wrist" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/DiamondEyes.jpg" alt="Diamond Eyes" />
+                    <NavLink
+                        to="/DiamondEyes">
+                        <img src="../albumcovers/DiamondEyes.jpg" alt="Diamond Eyes" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/KoiNoYokan.jpg" alt="Koi No Yokan" />
+                    <NavLink
+                        to="/KoiNoYokan">
+                        <img src="../albumcovers/KoiNoYokan.jpg" alt="Koi No Yokan" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/Gore.jpg" alt="Gore" />
+                    <NavLink
+                        to="/Gore">
+                        <img src="../albumcovers/Gore.jpg" alt="Gore" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/Ohms.jpg" alt="Ohms" />
+                    <NavLink
+                        to="/Ohms">
+                        <img src="../albumcovers/Ohms.jpg" alt="Ohms" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/BsidesAndRarities.jpg" alt="B-sides & Rarities" />
+                <NavLink
+                        to="/BsidesRarities">
+                        <img src="../albumcovers/BsidesAndRarities.jpg" alt="B-sides & Rarities" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/Covers.jpg" alt="Covers" />
+                    <NavLink
+                        to="/Covers">
+                        <img src="../albumcovers/Covers.jpg" alt="Covers" />
+                    </NavLink>
                 </div>
                 <div>
-                    <img src="../albumcovers/BlackStallion.jpg" alt="Black Stallion" />
+                    <NavLink
+                        to="/BlackStallion">
+                        <img src="../albumcovers/BlackStallion.jpg" alt="Black Stallion" />
+                    </NavLink>
                 </div>
             </div>
         </div>

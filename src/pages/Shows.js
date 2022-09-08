@@ -6,7 +6,7 @@ import '../App.css';
 
 function Shows() {
     return (
-        <div className="App" >
+        <div id="common" className="App" >
             <Header />
             <DataTable />
             <Footer />
