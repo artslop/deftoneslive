@@ -44,11 +44,7 @@ const initialState = {
 const showSlice = createSlice({
     name: 'shows',
     initialState,
-    reducers: {
-        addShows: (state, { payload }) => {
-            state.shows = payload
-        },
-    },
+    reducers: {},
 })
 
 // export const { addShows } = showSlice.actions;
