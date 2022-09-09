@@ -1,10 +1,8 @@
-import Header from '../../components/Header.js';
-import Footer from '../../components/Footer.js';
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid'
 import { useSelector } from "react-redux";
 import { allSongs } from "../../features/shows/showsSlice"
-import SongDetails from '../../components/SongDetails';
+import SongDetails from '../SongDetails';
 import Albums from "../../components/Albums.js";
 
 import '../../App.css';
@@ -12,7 +10,6 @@ import '../../App.css';
 function Gore() {
     return (
         <div className="App" >
-            <Header />
             <Albums />
             <div id="common">
                 <h2>Gore</h2>
@@ -30,7 +27,6 @@ function Gore() {
                     <li>Rubicon</li>
                 </ol>
             </div>
-            <Footer />
         </div>
 
     )

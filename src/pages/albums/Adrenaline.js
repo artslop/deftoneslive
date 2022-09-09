@@ -1,12 +1,8 @@
-import Header from '../../components/Header.js';
-import Footer from '../../components/Footer.js';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid'
 import { useSelector } from "react-redux";
 import { allSongs } from "../../features/shows/showsSlice"
-import SongDetails from '../../components/SongDetails';
-import Albums from "../../components/Albums.js";
-
+import SongDetails from '../SongDetails';
 import '../../App.css';
 
 function Adrenaline() {
@@ -32,16 +28,12 @@ function Adrenaline() {
 
     return (
         <div className="App" >
-            <Header />
-            <Albums />
+
             {isShowingSongDetails ?
                 songData.map((data) => (
                     <div key={nanoid()} style={{ width: '950px', margin: '0 auto' }}>
-
-                        <Albums />
                         <SongDetails song={data.name} album={data.album} lyrics={data.lyrics} />
                         <button style={{ display: 'flex', margin: "30px auto" }} onClick={handleGoBack}>Go Back</button>
-
                     </div>
                 ))
                 :

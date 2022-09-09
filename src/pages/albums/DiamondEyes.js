@@ -1,10 +1,8 @@
-import Header from '../../components/Header.js';
-import Footer from '../../components/Footer.js';
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid'
 import { useSelector } from "react-redux";
 import { allSongs } from "../../features/shows/showsSlice"
-import SongDetails from '../../components/SongDetails';
+import SongDetails from '../SongDetails';
 import Albums from "../../components/Albums.js";
 
 import '../../App.css';
@@ -12,7 +10,6 @@ import '../../App.css';
 function DiamondEyes() {
     return (
         <div className="App" >
-            <Header />
             <Albums />
             <div id="common">
                 <h2>Diamond Eyes</h2>
@@ -36,7 +33,6 @@ function DiamondEyes() {
                     <li>Caress (Drive Like Jehu Cover)</li>
                 </ol>
             </div>
-            <Footer />
         </div>
 
     )

@@ -8,7 +8,10 @@ import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.m
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 import { useSelector } from "react-redux";
 import { allSongs, columnSongData } from "../features/shows/showsSlice"
-import SongDetails from './SongDetails.js';
+import SongDetails from '../pages/SongDetails.js';
+import { NavLink } from "react-router-dom";
+
+
 
 
 function SongDataTable() {

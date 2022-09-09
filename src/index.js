@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import { store } from './features/store';
-import Home from './pages/Home.js';
 import Shows from './pages/Shows.js';
 import Songs from './pages/Songs.js';
+import SongDetails from './pages/SongDetails.js';
 import About from './pages/About.js';
 import Adrenaline from './pages/albums/Adrenaline.js';
 import AroundTheFur from './pages/albums/AroundTheFur.js';
@@ -20,23 +20,29 @@ import Ohms from './pages/albums/Ohms.js';
 import Covers from './pages/albums/Covers.js';
 import BsidesAndRarities from './pages/albums/BsidesAndRarities.js';
 import BlackStallion from './pages/albums/BlackStallion.js';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
+
+
 import './styles/styles.scss';
 
 import {
-  BrowserRouter, Routes,
+  BrowserRouter as Router, Routes,
   Route,
 } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <BrowserRouter>
+  <Router>
     <Provider store={store}>
+      <Header />
+
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="home" element={<Home />} />
         <Route path="shows" element={<Shows />} />
         <Route path="songs" element={<Songs />} />
+        <Route path="songDetails" element={<SongDetails />} />
         <Route path="about" element={<About />} />
         <Route path="adrenaline" element={<Adrenaline />} />
         <Route path="aroundthefur" element={<AroundTheFur />} />
@@ -51,8 +57,11 @@ root.render(
         <Route path="covers" element={<Covers />} />
         <Route path="blackstallion" element={<BlackStallion />} />
       </Routes>
+      <Footer />
+
     </Provider>
-  </BrowserRouter>
+
+  </Router>
 
 );
 

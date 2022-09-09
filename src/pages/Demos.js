@@ -1,12 +1,8 @@
-import Header from '../components/Header.js';
-import Footer from '../components/Footer.js';
-
 import '../App.css';
 
 function Demos() {
     return (
         <div className="App" >
-            <Header />
             <div id="common">
                 <h2>Demos</h2>
                 <h3>The Deftones (Untitled) 1991/1992</h3>
@@ -33,7 +29,6 @@ function Demos() {
                     <li>7 Words</li>
                 </ol>
             </div>
-            <Footer />
         </div>
 
     )

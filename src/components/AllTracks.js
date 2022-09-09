@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid'
-import SongDetails from './SongDetails';
+import SongDetails from '../pages/SongDetails';
 import { allSongs } from "../features/shows/showsSlice"
 import { useSelector } from "react-redux";
-import Albums from "../components/Albums.js";
+// import { useNavigate } from "react-router-dom";
 
 function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
     const [isShowingSongDetails, setIsShowingSongDetails] = useState(false);
     const [songData, setSongData] = useState([]);
     const allSongData = useSelector(allSongs)
+    // let navigate = useNavigate();
 
     const handleDisplaySongDetails = (song) => {
         const filteredSongData = allSongData.filter((track) => {
@@ -19,12 +20,13 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
         setSongData(filteredSongData)
     }
 
+
+
     return (
         <div>
             {isShowingSongDetails ?
                 songData.map((data) => (
                     <div key={nanoid()} style={{ width: '950px', margin: '0 auto' }}>
-                        <Albums />
                         <SongDetails song={data.name} album={data.album} lyrics={data.lyrics} />
                     </div>
                 ))
@@ -36,10 +38,12 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
 
                             {
                                 showTrackList
-                                    .map((track, i) => {
+                                    .map((track, idx) => {
                                         return (
-                                            <div key={i} className="allTracks">
-                                                <li onClick={() => { handleDisplaySongDetails(track) }}>{`${i + 1}. ${track}`}</li>
+                                            <div key={nanoid()} className="allTracks" >
+                                                <li onClick={() => { handleDisplaySongDetails(track) }}>
+                                                    {`${idx + 1}. ${track}`}
+                                                </li>
                                             </div>
                                         )
                                     })
@@ -51,10 +55,10 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
                             }
 
                             {
-                                encore1.map((encore, i) => {
+                                encore1.map((encore, idx) => {
                                     return (
-                                        <div key={i} className="allTracks">
-                                            <li>{`${showTrackList.length + (i + 1)}. ${encore}`}</li>
+                                        <div key={nanoid()} className="allTracks">
+                                            <li>{`${showTrackList.length + (idx + 1)}. ${encore}`}</li>
                                         </div>
                                     )
                                 })
@@ -66,11 +70,11 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
                             }
 
                             {
-                                encore2.map((encore2, i) => {
+                                encore2.map((encore2, idx) => {
                                     let numOfTracks = showTrackList.length + encore1.length;
                                     return (
-                                        <div key={i} className="allTracks">
-                                            <li>{`${numOfTracks + (i + 1)}. ${encore2}`}</li>
+                                        <div key={nanoid()} className="allTracks">
+                                            <li>{`${numOfTracks + (idx + 1)}. ${encore2}`}</li>
                                         </div>
                                     )
                                 })
