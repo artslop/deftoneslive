@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.css';
@@ -7,8 +6,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 import { useSelector, useDispatch } from "react-redux";
-import { allSongs, columnSongData } from "../features/shows/showsSlice"
-import { addSongDetails } from '../features/shows/showsSlice';
+import { allSongs, columnSongData, fromShows, toggleFromShows, addSongDetails } from "../features/shows/showsSlice"
 import { useNavigate } from "react-router-dom";
 
 function SongDataTable() {
@@ -31,6 +29,10 @@ function SongDataTable() {
 
     const tableRowEvents = {
         onClick: (_, row) => {
+            dispatch(
+                toggleFromShows({
+                    fromShows: false
+                }))
             dispatch(
                 addSongDetails(row.name, row.album, row.lyrics)
             )

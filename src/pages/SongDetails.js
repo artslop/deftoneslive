@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import Albums from "../components/Albums.js";
-import { selectedSong, selectedAlbum, lyrics } from "../features/shows/showsSlice"
+import { selectedSong, selectedAlbum, lyrics, fromShows } from "../features/shows/showsSlice"
 import { useNavigate } from "react-router-dom";
 
 function SongDetails() {
     const song = useSelector(selectedSong)
     const album = useSelector(selectedAlbum)
     const songLyrics = useSelector(lyrics)
+    const navigatedFromShows = useSelector(fromShows)
     let navigate = useNavigate();
 
     const handleGoBack = () => {
-        // TODO: Add conditon to navigate to shows or songs
-        navigate("../songs");
+        navigatedFromShows.fromShows ? navigate("../shows") : navigate("../songs");
     }
 
     return (

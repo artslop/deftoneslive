@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid'
 import { useDispatch } from 'react-redux';
-import { addSongDetails } from '../features/shows/showsSlice';
-import { allSongs } from "../features/shows/showsSlice"
+import { allSongs, fromShows, toggleFromShows, addSongDetails } from "../features/shows/showsSlice"
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -14,8 +13,13 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
         const songData = allSongData.filter((track) => {
             return track.name === song
         })
-        //  TODO: dispatch action to set fromShows to true
-        dispatch(addSongDetails(song, songData[0].album, songData[0].lyrics))
+        dispatch(
+            toggleFromShows({
+                fromShows: true
+            }))
+        dispatch(
+            addSongDetails(song, songData[0].album, songData[0].lyrics)
+        )
 
         navigate("../songdetails");
     }

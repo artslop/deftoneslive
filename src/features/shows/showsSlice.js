@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 import JSON from '../../json/deftones-setlists.json';
 import songJSON from '../../json/deftones-songs.json';
 
@@ -8,6 +8,7 @@ const showsWithReformattedDate = JSON.map((showObj) => {
     let result = date.split('-').reverse().join('-');
     return {
         ...showObj,
+        id: nanoid(),
         eventDate: result
     };
 })
@@ -18,6 +19,7 @@ const songsWithReformattedDate = songJSON.map((songData) => {
     const newDate = removedCode
     return {
         ...songData,
+        id: nanoid(),
         timestamp: newDate
     };
 })
@@ -26,6 +28,7 @@ const initialState = {
     selectedSong: "",
     selectedAlbum: "",
     lyrics: "",
+    navigatedFromShows: null,
     shows: showsWithReformattedDate,
     songs: songsWithReformattedDate,
     columnData: [
@@ -64,19 +67,23 @@ const showsSlice = createSlice({
                 }
             }
         },
+        toggleFromShows(state, action) {
+            state.navigatedFromShows = action.payload;
+        }
     }
 })
 
+// TODO: create separate slice for columnData and other table related data
 export const { addSongDetails } = showsSlice.actions;
+export const { toggleFromShows } = showsSlice.actions;
 export const allShows = (state) => state.shows;
 export const allSongs = (state) => state.songs;
-
-// TODO: create separate slice for columnData and other table related data
 export const columnData = (state) => state.columnData;
 export const selectedSong = (state) => state.selectedSong;
 export const selectedAlbum = (state) => state.selectedAlbum;
 export const lyrics = (state) => state.lyrics;
 export const columnSongData = (state) => state.columnSongData;
+export const fromShows = (state) => state.navigatedFromShows;
 
 export default showsSlice.reducer;
 
