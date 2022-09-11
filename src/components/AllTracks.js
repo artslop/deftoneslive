@@ -1,13 +1,12 @@
 import { nanoid } from 'nanoid'
-import { useDispatch } from 'react-redux';
-import { allSongs, fromShows, toggleFromShows, addSongDetails } from "../features/shows/showsSlice"
-import { useSelector } from "react-redux";
+import { allSongs, toggleFromShows, addSongDetails } from "../features/shows/showsSlice"
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
     const allSongData = useSelector(allSongs)
     const dispatch = useDispatch();
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleDisplaySongDetails = (song) => {
         const songData = allSongData.filter((track) => {
