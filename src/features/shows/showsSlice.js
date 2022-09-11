@@ -23,6 +23,9 @@ const songsWithReformattedDate = songJSON.map((songData) => {
 })
 
 const initialState = {
+    selectedSong: "",
+    selectedAlbum: "",
+    lyrics: "",
     shows: showsWithReformattedDate,
     songs: songsWithReformattedDate,
     columnData: [
@@ -41,20 +44,40 @@ const initialState = {
     ],
 }
 
-const showSlice = createSlice({
+const showsSlice = createSlice({
     name: 'shows',
     initialState,
-    reducers: {},
+    reducers: {
+        addSongDetails: {
+            reducer(state, action) {
+                state.selectedSong = action.payload
+                state.selectedAlbum = action.payload
+                state.lyrics = action.payload
+            },
+            prepare(selectedSong, selectedAlbum, lyrics) {
+                return {
+                    payload: {
+                        selectedSong,
+                        selectedAlbum,
+                        lyrics
+                    }
+                }
+            }
+        },
+    }
 })
 
-// export const { addShows } = showSlice.actions;
+export const { addSongDetails } = showsSlice.actions;
 export const allShows = (state) => state.shows;
 export const allSongs = (state) => state.songs;
 
 // TODO: create separate slice for columnData and other table related data
 export const columnData = (state) => state.columnData;
+export const selectedSong = (state) => state.selectedSong;
+export const selectedAlbum = (state) => state.selectedAlbum;
+export const lyrics = (state) => state.lyrics;
 export const columnSongData = (state) => state.columnSongData;
 
-export default showSlice.reducer;
+export default showsSlice.reducer;
 
 

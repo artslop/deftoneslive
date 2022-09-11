@@ -6,33 +6,17 @@ import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { allSongs, columnSongData } from "../features/shows/showsSlice"
-import SongDetails from '../pages/SongDetails.js';
-import { NavLink } from "react-router-dom";
-
-
-
+import { addSongDetails } from '../features/shows/showsSlice';
+import { useNavigate } from "react-router-dom";
 
 function SongDataTable() {
-
-    const [songData, setSongData] = useState([])
-    const [showSongDetails, setShowSongDetails] = useState(false);
-    const [songTitle, setSongTitle] = useState("");
-    const [albumTitle, setAlbumTitle] = useState("");
-    const [lyrics, setLyrics] = useState("");
     const { SearchBar } = Search;
     const allSongData = useSelector(allSongs)
     const columns = useSelector(columnSongData)
-
-
-    // apparently this is probably unnecessary since we can access the state from the allSongsData selector
-    useEffect(() => {
-        setSongData(allSongData)
-    }, [allSongData])
-
-    // console.log('allSongData', allSongData)
-
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const pagination = paginationFactory({
         page: 1,
@@ -45,56 +29,49 @@ function SongDataTable() {
         alwaysShowAllBtns: true,
     })
 
-    // const handleGoBack = () => {
-
-    // }
-
     const tableRowEvents = {
-        onClick: (e, row, rowIndex) => {
-            setShowSongDetails(true)
-            setSongTitle(row.name)
-            setAlbumTitle(row.album)
-            setLyrics(row.lyrics)
+        onClick: (_, row) => {
+            dispatch(
+                addSongDetails(row.name, row.album, row.lyrics)
+            )
+
+            navigate("../songdetails");
         }
     }
 
-
     return (
         <div className="App" >
-            {showSongDetails ?
-                <SongDetails song={songTitle} album={albumTitle} lyrics={lyrics} /> :
-
-                <ToolkitProvider
-                    keyField="id"
-                    data={songData}
-                    columns={columns}
-                    bootstrap4
-                    search={{
-                        searchFormatted: true
-                    }}
-                >
-                    {
-                        props => (
+            <ToolkitProvider
+                keyField="id"
+                data={allSongData}
+                columns={columns}
+                bootstrap4
+                search={{
+                    searchFormatted: true
+                }}
+            >
+                {
+                    props => (
+                        <div>
                             <div>
-                                <div>
-                                    <div className="songSearch"><SearchBar {...props.searchProps} placeholder="Search" autofocus /></div>
-                                </div>
-                                <div className="tablecontain">
-                                    <BootstrapTable
-                                        sort={{ dataField: 'timestamp', order: 'desc' }}
-                                        // pagination={!showTracks ? pagination : null}
-                                        bordered={false}
-                                        pagination={pagination}
-                                        rowEvents={tableRowEvents}
-                                        rowStyle={{ backgroundColor: '#0d0d0d', color: 'white', cursor: 'pointer' }}
-                                        {...props.baseProps}
-                                    />
+                                <div className="songSearch">
+                                    <SearchBar {...props.searchProps} placeholder="Search" autofocus />
                                 </div>
                             </div>
-                        )
-                    }
-                </ToolkitProvider>
-            }
+                            <div className="tablecontain">
+                                <BootstrapTable
+                                    sort={{ dataField: 'timestamp', order: 'desc' }}
+                                    bordered={false}
+                                    pagination={pagination}
+                                    rowEvents={tableRowEvents}
+                                    rowStyle={{ backgroundColor: '#0d0d0d', color: 'white', cursor: 'pointer' }}
+                                    {...props.baseProps}
+                                />
+                            </div>
+                        </div>
+                    )
+                }
+            </ToolkitProvider>
         </div >
     );
 }
