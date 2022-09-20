@@ -16,7 +16,7 @@ function SongDetails() {
     }
 
     return (
-        <div>
+        <div id="common">
             <Albums />
             <div style={{ color: 'white' }}><strong>Song</strong>: {song.selectedSong}</div>
             <br />
