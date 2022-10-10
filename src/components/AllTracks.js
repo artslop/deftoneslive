@@ -9,13 +9,9 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
     const navigate = useNavigate();
 
     const handleDisplaySongDetails = (song) => {
-
         const songData = allSongData.filter((track) => {
-            console.log('trackNames', track.name)
             return track.name.toLowerCase() === song.toLowerCase();
         })
-
-        // console.log('songData: ', songData)
         dispatch(
             toggleFromShows({
                 fromShows: true
