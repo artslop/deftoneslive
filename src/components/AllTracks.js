@@ -9,15 +9,19 @@ function AllTracks({ showTrackList, encore1, encore2, info, goBack }) {
     const navigate = useNavigate();
 
     const handleDisplaySongDetails = (song) => {
+
         const songData = allSongData.filter((track) => {
-            return track.name === song
+            console.log('trackNames', track.name)
+            return track.name.toLowerCase() === song.toLowerCase();
         })
+
+        // console.log('songData: ', songData)
         dispatch(
             toggleFromShows({
                 fromShows: true
             }))
         dispatch(
-            addSongDetails(song, songData[0].album, songData[0].lyrics)
+            addSongDetails(song, songData[0]?.album, songData[0]?.lyrics)
         )
 
         navigate("../songdetails");
