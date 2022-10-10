@@ -72,7 +72,7 @@ function Eras({ displayEra, defaultEra }) {
                 <option value={"Deftones"}>Deftones (2003-2006)</option>
                 <option value={"Saturday Night Wrist"}>Saturday Night Wrist (2006-2008)</option>
                 <option value={"Eros"}>Eros (2008-2009)</option>
-                <option value={"Diamond Eyes"}> (2009-2012)</option>
+                <option value={"Diamond Eyes"}>Diamond Eyes (2009-2012)</option>
                 <option value={"Koi No Yokan"}>Koi No Yokan (2012-2016)</option>
                 <option value={"Gore"}>Gore (2016-2020)</option>
                 <option value={"Ohms"}>Ohms (2020-2022)</option>
