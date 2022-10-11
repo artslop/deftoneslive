@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from "react-redux"
 import { allSongs, addSongDetails, toggleFromShows } from "../../features/shows/showsSlice"
+import Albums from "../../components/Albums.js";
 import { useNavigate } from "react-router-dom";
 import '../../App.css'
 
@@ -12,16 +11,16 @@ function Adrenaline() {
     const navigate = useNavigate();
 
     const handleDisplaySongDetails = (e) => {
-        const track = e.target.id;
+        const track = e.target.id.toLowerCase();
         const songData = allSongData.filter((songs) => {
-            return songs.name === track
+            return songs.name.toLowerCase() === track;
         })
         dispatch(
             toggleFromShows({
                 fromShows: false
             }))
         dispatch(
-            addSongDetails(track, songData[0].album, songData[0].lyrics)
+            addSongDetails(track, songData[0]?.album, songData[0]?.lyrics)
         )
 
         navigate("../songdetails");
@@ -29,6 +28,7 @@ function Adrenaline() {
 
     return (
         <div className="App" >
+            <Albums />
             <div id="common">
                 <h2>Adrenaline</h2>
                 <div id="albumDetails">
