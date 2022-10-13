@@ -6,11 +6,20 @@ import App from './App';
 import { store } from './app/store';
 import './styles/styles.scss';
 
+import { AmplifyProvider } from '@aws-amplify/ui-react'
+import Amplify from '@aws-amplify/core'
+import config from '../src/aws-exports'
+import '@aws-amplify/ui-react/styles.css'
+
+Amplify.configure(config)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <Provider store={store}>
-    <App />
+    <AmplifyProvider>
+      <App />
+    </AmplifyProvider>
   </Provider>
 );
 

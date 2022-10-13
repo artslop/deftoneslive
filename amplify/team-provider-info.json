@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-deftoneslive-dev-141248-authRole",
+      "UnauthRoleArn": "arn:aws:iam::086491216619:role/amplify-deftoneslive-dev-141248-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::086491216619:role/amplify-deftoneslive-dev-141248-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-deftoneslive-dev-141248-deployment",
+      "UnauthRoleName": "amplify-deftoneslive-dev-141248-unauthRole",
+      "StackName": "amplify-deftoneslive-dev-141248",
+      "StackId": "arn:aws:cloudformation:us-east-1:086491216619:stack/amplify-deftoneslive-dev-141248/a5fa29c0-4b22-11ed-8884-0e78cf112269",
+      "AmplifyAppId": "d1pn9cuj4n63hu"
+    },
+    "categories": {
+      "function": {
+        "deftonesliveebdda69c": {
+          "sesEmail": "mikerooze12@gmail.com",
+          "deploymentBucketName": "amplify-deftoneslive-dev-141248-deployment",
+          "s3Key": "amplify-builds/deftonesliveebdda69c-5234347557444b494c45-build.zip"
+        }
+      },
+      "api": {
+        "deftoneslive": {}
+      }
+    }
+  }
+}

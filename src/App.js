@@ -19,7 +19,6 @@ import BsidesAndRarities from './pages/albums/BsidesAndRarities.js';
 import BlackStallion from './pages/albums/BlackStallion.js';
 import ContactForm from './components/ContactForm.js';
 import Footer from './components/Footer.js';
-
 import {
   BrowserRouter as Router, Routes,
   Route,

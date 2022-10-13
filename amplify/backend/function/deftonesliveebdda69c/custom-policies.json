@@ -1,0 +1,9 @@
+[
+  {
+    "Action": [
+      "ses:SendEmail"
+    ],
+    "Effect": "Allow",
+    "Resource": ["arn:aws:ses:*:*:identity/mikerooze12@gmail.com"]
+  }
+]
