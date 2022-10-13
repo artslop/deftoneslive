@@ -17,6 +17,7 @@ import Ohms from './pages/albums/Ohms.js';
 import Covers from './pages/albums/Covers.js';
 import BsidesAndRarities from './pages/albums/BsidesAndRarities.js';
 import BlackStallion from './pages/albums/BlackStallion.js';
+import ContactForm from './components/ContactForm.js';
 import Footer from './components/Footer.js';
 
 import {
@@ -47,6 +48,7 @@ function App() {
           <Route path="bsidesandrarities" element={<BsidesAndRarities />} />
           <Route path="covers" element={<Covers />} />
           <Route path="blackstallion" element={<BlackStallion />} />
+          <Route path="contact" element={<ContactForm />} />
         </Routes>
         <Footer />
       </Router>
