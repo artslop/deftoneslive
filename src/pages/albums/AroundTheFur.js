@@ -1,32 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { allSongs, addSongDetails, toggleFromShows } from "../../features/shows/showsSlice"
 import Albums from "../../components/Albums.js";
+import useDisplaySongDetails from "../../customHooks/useDisplaySongDetails"
+import '../../App.css'
 
 import '../../App.css';
 
 function AroundTheFur() {
-
-    const allSongData = useSelector(allSongs)
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const handleDisplaySongDetails = (e) => {
-        const track = e.target.id.toLowerCase();
-        const songData = allSongData.filter((songs) => {
-            return songs.name.toLowerCase() === track
-        })
-        dispatch(
-            toggleFromShows({
-                fromShows: false
-            }))
-        dispatch(
-            addSongDetails(track, songData[0]?.album, songData[0]?.lyrics)
-        )
-
-        navigate("../songdetails");
-    }
+    const { displayDetails } = useDisplaySongDetails();
     return (
         <div className="App" >
             <Albums />
@@ -38,17 +17,17 @@ function AroundTheFur() {
                     </div>
                     <div className="track-list">
                         <ol style={{ cursor: 'pointer' }}>
-                            <li id="My Own Summer (Shove It)" onClick={handleDisplaySongDetails}>My Own Summer (Shove It)</li>
-                            <li id="Lhabia" onClick={handleDisplaySongDetails}>Lhabia</li>
-                            <li id="Mascara" onClick={handleDisplaySongDetails}>Mascara</li>
-                            <li id="Around the Fur" onClick={handleDisplaySongDetails}>Around the Fur</li>
-                            <li id="Rickets" onClick={handleDisplaySongDetails}>Rickets</li>
-                            <li id="Be Quiet and Drive (Far Away)" onClick={handleDisplaySongDetails}>Be Quiet and Drive (Far Away)</li>
-                            <li id="Lotion" onClick={handleDisplaySongDetails}>Lotion</li>
-                            <li id="Dai the Flu" onClick={handleDisplaySongDetails}>Dai the Flu</li>
-                            <li id="Headup" onClick={handleDisplaySongDetails}>Headup</li>
-                            <li id="MX" onClick={handleDisplaySongDetails}>MX</li>
-                            <li id="Damone (hidden track)" onClick={handleDisplaySongDetails}>Damone (hidden track)</li>
+                            <li id="My Own Summer (Shove It)" onClick={(e) => displayDetails(e)}>My Own Summer (Shove It)</li>
+                            <li id="Lhabia" onClick={(e) => displayDetails(e)}>Lhabia</li>
+                            <li id="Mascara" onClick={(e) => displayDetails(e)}>Mascara</li>
+                            <li id="Around the Fur" onClick={(e) => displayDetails(e)}>Around the Fur</li>
+                            <li id="Rickets" onClick={(e) => displayDetails(e)}>Rickets</li>
+                            <li id="Be Quiet and Drive (Far Away)" onClick={(e) => displayDetails(e)}>Be Quiet and Drive (Far Away)</li>
+                            <li id="Lotion" onClick={(e) => displayDetails(e)}>Lotion</li>
+                            <li id="Dai the Flu" onClick={(e) => displayDetails(e)}>Dai the Flu</li>
+                            <li id="Headup" onClick={(e) => displayDetails(e)}>Headup</li>
+                            <li id="MX" onClick={(e) => displayDetails(e)}>MX</li>
+                            <li id="Damone (hidden track)" onClick={(e) => displayDetails(e)}>Damone (hidden track)</li>
                         </ol>
                     </div>
                 </div>
