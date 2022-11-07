@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { setUserSession } from '../service/AuthService'
-const loginAPIUrl = 'https://ivkq1zsc8a.execute-api.us-east-1.amazonaws.com/login';
+const loginAPIUrl = 'https://ivkq1zsc8a.execute-api.us-east-1.amazonaws.com/prod/login';
 
 const Login = () => {
     const [username, setUsername] = useState('');

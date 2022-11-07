@@ -24,4 +24,4 @@ function buildCORSResponse(statusCode, body) {
 }
 
 module.exports.buildResponse = buildResponse;
-module.exports.buildCorsResponse = buildCORSResponse;
+module.exports.buildCORSResponse = buildCORSResponse;
