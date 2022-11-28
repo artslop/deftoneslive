@@ -1,8 +1,11 @@
 import './App.css';
 import Header from './components/Header.js';
 import Home from './pages/Home.js';
+import Register from './pages/Register.js';
+import AdminLogin from './pages/AdminLogin.js';
 import Login from './pages/Login.js';
 import AdminPage from './pages/AdminPage.js';
+import { PrivateRoute } from "./routes/PrivateRoute";
 import Shows from './pages/Shows.js';
 import Songs from './pages/Songs.js';
 import SongDetails from './pages/SongDetails.js';
@@ -30,12 +33,15 @@ function App() {
   return (
     <div className="App" >
       <Router>
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="login" element={<Login />} />
-
-          <Route path="adminPage" element={<AdminPage />} />
+          <Route path="dt-admin" element={<AdminLogin />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route exact path='/' element={<PrivateRoute />}>
+            <Route exact path='/AdminPage' element={<AdminPage />} />
+          </Route>
           <Route path="shows" element={<Shows />} />
           <Route path="songs" element={<Songs />} />
           <Route path="songdetails" element={<SongDetails />} />
@@ -54,7 +60,6 @@ function App() {
           <Route path="blackstallion" element={<BlackStallion />} />
           <Route path="contact" element={<ContactForm />} />
         </Routes>
-
         <Footer />
       </Router>
     </div >
